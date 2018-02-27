@@ -1,0 +1,6 @@
+DEL wp-includes/pluggable.php 828
+ADD wp-admin/async-upload.php 33
+ADD wp-admin/async-upload.php 34
+ADD wp-admin/async-upload.php 36
+ADD wp-admin/async-upload.php 37
+ADD wp-includes/pluggable.php 828

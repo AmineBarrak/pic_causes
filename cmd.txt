@@ -1,0 +1,3 @@
+./collect-DS.sh ../pic_wordpress.csv ../wordpress_ds.csv &>>../log_wordpress.txt
+
+./collect-DS.sh ../pic_mediawiki.csv ../mediawiki_ds.csv &>>../log_mediawiki.txt

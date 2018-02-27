@@ -1,0 +1,16 @@
+ADD wp-admin/includes/class-wp-posts-list-table.php 530
+ADD wp-admin/includes/class-wp-themes-list-table.php 149
+ADD wp-admin/plugins.php 405
+ADD wp-includes/kses.php 1322
+ADD wp-includes/kses.php 1323
+ADD wp-includes/kses.php 1324
+ADD wp-includes/kses.php 1325
+ADD wp-includes/kses.php 1350
+ADD wp-includes/kses.php 1351
+ADD wp-includes/version.php 7
+DEL wp-admin/includes/class-wp-posts-list-table.php 530
+DEL wp-admin/includes/class-wp-themes-list-table.php 149
+DEL wp-admin/plugins.php 405
+DEL wp-includes/kses.php 1319
+DEL wp-includes/kses.php 1342
+DEL wp-includes/version.php 7

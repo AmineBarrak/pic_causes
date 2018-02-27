@@ -1,0 +1,7 @@
+DEL wp-admin/post.php 116
+DEL wp-admin/post.php 117
+DEL wp-includes/version.php 7
+ADD wp-admin/includes/dashboard.php 419
+ADD wp-admin/includes/dashboard.php 420
+ADD wp-admin/post.php 116
+ADD wp-includes/version.php 7

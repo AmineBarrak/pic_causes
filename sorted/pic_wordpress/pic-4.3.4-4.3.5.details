@@ -1,0 +1,14 @@
+ADD wp-admin/includes/ajax-actions.php 2654
+ADD wp-admin/revision.php 66
+ADD wp-includes/formatting.php 1327
+ADD wp-includes/formatting.php 1328
+ADD wp-includes/formatting.php 1329
+ADD wp-includes/formatting.php 1330
+ADD wp-includes/formatting.php 1331
+ADD wp-includes/version.php 7
+DEL wp-admin/includes/ajax-actions.php 2654
+DEL wp-admin/revision.php 66
+DEL wp-includes/pluggable.php 1024
+DEL wp-includes/pluggable.php 1025
+DEL wp-includes/pluggable.php 1026
+DEL wp-includes/version.php 7

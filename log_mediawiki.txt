@@ -1,0 +1,737 @@
+rm: cannot remove '../mediawiki_ds.csv': No such file or directory
+HEAD is now at 7a703849af... Bump to 1.11.0
+fatal: cannot stat path 'includes/Image.php': No such file or directory
+fatal: cannot stat path 'maintenance/cleanupDupes.php': No such file or directory
+fatal: cannot stat path 'maintenance/dumpReplayLog.php': No such file or directory
+fatal: cannot stat path 'maintenance/importPhase2.php': No such file or directory
+fatal: cannot stat path 'maintenance/userDupes.php': No such file or directory
+fatal: cannot stat path 'tests/RunTests.php': No such file or directory
+fatal: cannot stat path 'tests/SanitizerTest.php': No such file or directory
+Previous HEAD position was 7a703849af... Bump to 1.11.0
+HEAD is now at 33c8b6247e... bump to 1.12.0
+fatal: cannot stat path 'includes/HTMLForm.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageKk_kz.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/HTMLDump.php': No such file or directory
+Previous HEAD position was 33c8b6247e... bump to 1.12.0
+HEAD is now at a61d22ac0f... Localisation updates from Betawiki * Backport compatible localisations to REL1_12
+Previous HEAD position was a61d22ac0f... Localisation updates from Betawiki * Backport compatible localisations to REL1_12
+HEAD is now at ef9c3a12bd... Updates for 1.13.0
+fatal: cannot stat path 'includes/CoreParserFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/LoadBalancer.php': No such file or directory
+fatal: cannot stat path 'includes/SearchTsearch2.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialCategories.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialLog.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialMovepage.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialNewpages.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialPrefixindex.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialRecentchanges.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialRecentchangeslinked.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialRevisiondelete.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialSearch.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialSpecialpages.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialUserlogout.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialWhatlinkshere.php': No such file or directory
+fatal: cannot stat path 'includes/Utf8Case.php': No such file or directory
+fatal: cannot stat path 'includes/api/ApiChangeRights.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/ICRepo.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageKo.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesDum.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesNon.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesSr_jc.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesSr_jl.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/splitLanguageFiles.php': No such file or directory
+Previous HEAD position was ef9c3a12bd... Updates for 1.13.0
+HEAD is now at 09582e83f2... Release notes wording tweak
+Previous HEAD position was 09582e83f2... Release notes wording tweak
+HEAD is now at 0034fc9250... Updates for release of 1.14.0
+fatal: cannot stat path 'includes/parser/Parser_OldPP.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageGsw.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageRmy.php': No such file or directory
+Previous HEAD position was 0034fc9250... Updates for release of 1.14.0
+HEAD is now at 781e0c79ae... Backported r51680 (use require not include) and added release notes.
+fatal: cannot stat path 'includes/UploadBase.php': No such file or directory
+fatal: cannot stat path 'includes/UploadFromStash.php': No such file or directory
+fatal: cannot stat path 'includes/UploadFromUpload.php': No such file or directory
+fatal: cannot stat path 'includes/UploadFromUrl.php': No such file or directory
+Previous HEAD position was 781e0c79ae... Backported r51680 (use require not include) and added release notes.
+HEAD is now at 5ff9e7b357... Updates for release of 1.16.0
+fatal: cannot stat path 'includes/FileStore.php': No such file or directory
+fatal: cannot stat path 'includes/PageHistory.php': No such file or directory
+fatal: cannot stat path 'includes/SearchMySQL.php': No such file or directory
+fatal: cannot stat path 'includes/cbt/CBTCompiler.php': No such file or directory
+fatal: cannot stat path 'includes/cbt/CBTProcessor.php': No such file or directory
+fatal: cannot stat path 'includes/diff/HTMLDiff.php': No such file or directory
+fatal: cannot stat path 'includes/diff/Nodes.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/FileCache.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialListUserRestrictions.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialRestrictUser.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialUploadMogile.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesLld.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesRuq_grek.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesTlh.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesYdd.php': No such file or directory
+fatal: cannot stat path 'maintenance/archives/populateSha1.php': No such file or directory
+fatal: cannot stat path 'maintenance/archives/upgradeWatchlist.php': No such file or directory
+fatal: cannot stat path 'maintenance/attribute.php': No such file or directory
+fatal: cannot stat path 'maintenance/counter.php': No such file or directory
+fatal: cannot stat path 'maintenance/importLogs.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/makeMessageDB.php': No such file or directory
+fatal: cannot stat path 'maintenance/namespace2sql.php': No such file or directory
+fatal: cannot stat path 'serialized/serialize-localisation.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/MonoBookCBT.php': No such file or directory
+fatal: cannot stat path 't/Test.php': No such file or directory
+fatal: cannot stat path 'tests/MediaWiki_TestCase.php': No such file or directory
+fatal: cannot stat path 'tests/run-test.php': No such file or directory
+Previous HEAD position was 5ff9e7b357... Updates for release of 1.16.0
+HEAD is now at 674ff5526e... Release notes for r85858.
+Previous HEAD position was 674ff5526e... Release notes for r85858.
+HEAD is now at 30c5be5871... Updates for 1.17.0, release notes fixes for r90341 and r90492.
+fatal: cannot stat path 'config/Installer.php': No such file or directory
+fatal: cannot stat path 'includes/DatabaseFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/JSMin.php': No such file or directory
+fatal: cannot stat path 'includes/NamespaceCompat.php': No such file or directory
+fatal: cannot stat path 'includes/XmlFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/diff/DifferenceInterface.php': No such file or directory
+fatal: cannot stat path 'includes/search/SearchMySQL4.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialRemoveRestrictions.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguagePt_br.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesCkb_arab.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesDk.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesHif_deva.php': No such file or directory
+fatal: cannot stat path 'maintenance/installExtension.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/diffLanguage.php': No such file or directory
+fatal: cannot stat path 'maintenance/parserTestsParserHook.php': No such file or directory
+fatal: cannot stat path 'maintenance/parserTestsParserTime.php': No such file or directory
+fatal: cannot stat path 'maintenance/parserTestsStaticParserHook.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/ApiSetup.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/ApiTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/CdbTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/DatabaseSqliteTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/DatabaseTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/GlobalTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/HttpTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/IPTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/ImageFunctionsTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/LanguageConverterTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/LicensesTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/LocalFileTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/MediaWikiParserTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/MediaWiki_Setup.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/RevisionTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/SanitizerTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/SearchEngineTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/SearchMySQLTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/SearchUpdateTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/SiteConfigurationTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/TimeAdjustTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/TitleTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/XmlTest.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/bootstrap.php': No such file or directory
+Previous HEAD position was 30c5be5871... Updates for 1.17.0, release notes fixes for r90341 and r90492.
+HEAD is now at 6a5b1dec91... * (bug 32276) Skins were generating output using the internal page title which would allow anonymous users to determine wheter a page exists, potentially leaking private data. In fact, the curid and oldid request parameters would   allow page titles to be enumerated even when they are not guessable. * (bug 32616) action=ajax requests were dispatched to the relevant internal functions without any read permission checks being done. This could lead to data leakage on private wikis
+fatal: cannot stat path 'config/index.php': No such file or directory
+fatal: cannot stat path 'config/index.php5': No such file or directory
+fatal: cannot stat path 'includes/AjaxFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/BagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/Exif.php': No such file or directory
+fatal: cannot stat path 'includes/FileRevertForm.php': No such file or directory
+fatal: cannot stat path 'includes/MacBinary.php': No such file or directory
+fatal: cannot stat path 'includes/Math.php': No such file or directory
+fatal: cannot stat path 'includes/ObjectCache.php': No such file or directory
+fatal: cannot stat path 'includes/ProfilerSimpleText.php': No such file or directory
+fatal: cannot stat path 'includes/ProfilerStub.php': No such file or directory
+fatal: cannot stat path 'includes/WatchlistEditor.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/Image.php': No such file or directory
+fatal: cannot stat path 'includes/libs/spyc.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialBlockip.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialIpblocklist.php': No such file or directory
+fatal: cannot stat path 'includes/templates/PHP4.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesTp.php': No such file or directory
+fatal: cannot stat path 'maintenance/httpSessionDownload.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/SeleniumTestCase.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/suites/MediaWikExtraTestSuite.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/suites/MediaWikiEditorTestSuite.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/suites/MyContributionsTestCase.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/suites/MyWatchListTestCase.php': No such file or directory
+fatal: cannot stat path 'maintenance/tests/selenium/suites/SimpleSeleniumConfig.php': No such file or directory
+fatal: cannot stat path 'php5.php5': No such file or directory
+Previous HEAD position was 6a5b1dec91... * (bug 32276) Skins were generating output using the internal page title which would allow anonymous users to determine wheter a page exists, potentially leaking private data. In fact, the curid and oldid request parameters would   allow page titles to be enumerated even when they are not guessable. * (bug 32616) action=ajax requests were dispatched to the relevant internal functions without any read permission checks being done. This could lead to data leakage on private wikis
+HEAD is now at cb82979b64... Bump version and update release notes for 1.19.0 release
+fatal: cannot stat path 'includes/PatrolLog.php': No such file or directory
+fatal: cannot stat path 'includes/RawPage.php': No such file or directory
+fatal: cannot stat path 'includes/RequestContext.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/eAccelBagOStuff.php': No such file or directory
+fatal: cannot stat path 'maintenance/Site.php': No such file or directory
+fatal: cannot stat path 'maintenance/addwiki.php': No such file or directory
+fatal: cannot stat path 'maintenance/dumpHTML.php': No such file or directory
+fatal: cannot stat path 'maintenance/dumpInterwiki.php': No such file or directory
+fatal: cannot stat path 'maintenance/gearman/gearmanRefreshLinks.php': No such file or directory
+fatal: cannot stat path 'maintenance/gearman/gearmanWorker.php': No such file or directory
+fatal: cannot stat path 'maintenance/importUseModWiki.php': No such file or directory
+fatal: cannot stat path 'maintenance/importUseModWikipedia.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/function-list.php': No such file or directory
+fatal: cannot stat path 'maintenance/ourusers.php': No such file or directory
+fatal: cannot stat path 'maintenance/rebuildInterwiki.php': No such file or directory
+fatal: cannot stat path 'maintenance/renamewiki.php': No such file or directory
+fatal: cannot stat path 'tests/parser/parserTestsStaticParserHook.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/parser/ParserHelpers.php': No such file or directory
+fatal: cannot stat path 'trackback.php': No such file or directory
+fatal: cannot stat path 'trackback.php5': No such file or directory
+Previous HEAD position was cb82979b64... Bump version and update release notes for 1.19.0 release
+HEAD is now at 996143fbf1... Updated Release notes and version number for 1.19.12
+Previous HEAD position was 996143fbf1... Updated Release notes and version number for 1.19.12
+HEAD is now at 7f64bb2381... 1.19.13 release notes and version update
+Previous HEAD position was 7f64bb2381... 1.19.13 release notes and version update
+HEAD is now at 44edaa25a9... Commit changes from tarball for 1.20 to REL1_20
+fatal: cannot stat path 'includes/ImageFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/api/ApiQueryAllimages.php': No such file or directory
+fatal: cannot stat path 'includes/cache/MemcachedSessions.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/FSFileBackend.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/FileBackend.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/FileBackendMultiWrite.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/SwiftFileBackend.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/lockmanager/DBLockManager.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/lockmanager/LSLockManager.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/backend/lockmanager/LockManager.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageAm.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageBe.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageBh.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageCs.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageCy.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageFr.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageGd.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/lang2po.php': No such file or directory
+fatal: cannot stat path 'maintenance/purgeStaleMemcachedText.php': No such file or directory
+Previous HEAD position was 44edaa25a9... Commit changes from tarball for 1.20 to REL1_20
+HEAD is now at beff6f0a98... Forgot to update release notes
+fatal: cannot stat path 'includes/ExternalStore.php': No such file or directory
+fatal: cannot stat path 'includes/db/DatabaseIbm_db2.php': No such file or directory
+fatal: cannot stat path 'includes/installer/Ibm_db2Installer.php': No such file or directory
+fatal: cannot stat path 'includes/installer/Ibm_db2Updater.php': No such file or directory
+fatal: cannot stat path 'includes/job/RefreshLinksJob.php': No such file or directory
+fatal: cannot stat path 'includes/mobile/DeviceDetection.php': No such file or directory
+fatal: cannot stat path 'includes/parser/Preprocessor_HipHop.hphp': No such file or directory
+fatal: cannot stat path 'includes/search/SearchIBM_DB2.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageLt.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageLv.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageMo.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageRo.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageSe.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageSgs.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageSma.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesAls.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesBat_smg.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesBe_x_old.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesFiu_vro.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesNo.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesRoa_rup.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesSimple.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesZh_classical.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesZh_min_nan.php': No such file or directory
+fatal: cannot stat path 'languages/messages/MessagesZh_yue.php': No such file or directory
+fatal: cannot stat path 'maintenance/checkAutoLoader.php': No such file or directory
+fatal: cannot stat path 'maintenance/upgrade1_5.php': No such file or directory
+fatal: cannot stat path 'tests/jasmine/spec_makers/makeJqueryMsgSpec.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/ParserOptionsTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/mobile/DeviceDetectionTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/languages/LanguageBhTest.php': No such file or directory
+Previous HEAD position was beff6f0a98... Forgot to update release notes
+HEAD is now at 4f5fb6faea... Update Releasenotes and version number for 1.20.8
+Previous HEAD position was 4f5fb6faea... Update Releasenotes and version number for 1.20.8
+HEAD is now at 404e36aa5f... Updated release notes and version number
+Previous HEAD position was 404e36aa5f... Updated release notes and version number
+HEAD is now at 6071399737... Raised version number to 1.22.0 (stable)
+fatal: cannot stat path 'includes/ChangesList.php': No such file or directory
+fatal: cannot stat path 'includes/ExternalEdit.php': No such file or directory
+fatal: cannot stat path 'includes/ExternalUser.php': No such file or directory
+fatal: cannot stat path 'includes/SeleniumWebSettings.php': No such file or directory
+fatal: cannot stat path 'includes/SkinLegacy.php': No such file or directory
+fatal: cannot stat path 'includes/extauth/Hardcoded.php': No such file or directory
+fatal: cannot stat path 'includes/extauth/MediaWiki.php': No such file or directory
+fatal: cannot stat path 'includes/extauth/vB.php': No such file or directory
+fatal: cannot stat path 'includes/json/Services_JSON.php': No such file or directory
+fatal: cannot stat path 'includes/parser/CoreLinkFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/parser/Parser_LinkHooks.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialBlockme.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialDisambiguations.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageHi.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageMg.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageMk.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageMt.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageNso.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageSh.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageSk.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageTi.php': No such file or directory
+fatal: cannot stat path 'maintenance/proxyCheck.php': No such file or directory
+fatal: cannot stat path 'maintenance/purgeDeletedFiles.php': No such file or directory
+fatal: cannot stat path 'redirect.php': No such file or directory
+fatal: cannot stat path 'skins/Chick.php': No such file or directory
+fatal: cannot stat path 'skins/Nostalgia.php': No such file or directory
+fatal: cannot stat path 'skins/Simple.php': No such file or directory
+fatal: cannot stat path 'skins/Standard.php': No such file or directory
+fatal: cannot stat path 'tests/RunSeleniumTests.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/JsonTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/Providers.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/SeleniumConfigurationTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/json/ServicesJsonTest.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/Selenium.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumConfig.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumLoader.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumServerManager.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestConsoleLogger.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestConstants.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestHTMLLogger.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestListener.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/SeleniumTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiButtonsAvailabilityTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiDifferentDatabaseAccountTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiDifferntDatabasePrefixTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiErrorsConnectToDatabasePageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiErrorsNamepageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiHelpFieldHintTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiInstallationCommonFunction.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiInstallationConfig.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiInstallationMessage.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiInstallationVariables.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiInstallerTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiMySQLDataBaseTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiMySQLiteDataBaseTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiOnAlreadyInstalledTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiRestartInstallationTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiRightFrameworkLinksTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiUpgradeExistingDatabaseTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/installer/MediaWikiUserInterfaceTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/AddContentToNewPageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/AddNewPageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/CreateAccountTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/DeletePageAdminTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/EmailPasswordTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MediaWikiEditorConfig.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MediaWikiEditorTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MediaWikiExtraTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MediawikiCoreSmokeTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MediawikiCoreSmokeTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MovePageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MyContributionsTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/MyWatchListTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/PageDeleteTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/PageSearchTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/PreviewPageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/SavePageTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/SimpleSeleniumConfig.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/SimpleSeleniumTestCase.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/SimpleSeleniumTestSuite.php': No such file or directory
+fatal: cannot stat path 'tests/selenium/suites/UserPreferencesTestCase.php': No such file or directory
+Previous HEAD position was 6071399737... Raised version number to 1.22.0 (stable)
+HEAD is now at bbbf00e7a1... 1.21.7 release notes and version update
+Previous HEAD position was bbbf00e7a1... 1.21.7 release notes and version update
+HEAD is now at 9fd800884c... Updated release notes and version number for MediaWiki 1.21.8
+Previous HEAD position was 9fd800884c... Updated release notes and version number for MediaWiki 1.21.8
+HEAD is now at 50116a4082... Updated release notes and version number for MediaWiki 1.21.9
+Previous HEAD position was 50116a4082... Updated release notes and version number for MediaWiki 1.21.9
+HEAD is now at c589c347ec... 1.22.4 release notes and version update
+Previous HEAD position was c589c347ec... 1.22.4 release notes and version update
+HEAD is now at 72661021f2... Updated release notes and version number for MediaWiki 1.22.5
+Previous HEAD position was 72661021f2... Updated release notes and version number for MediaWiki 1.22.5
+HEAD is now at 7fe794ccab... Updated release notes and version number of MediaWiki 1.22.6
+Previous HEAD position was 7fe794ccab... Updated release notes and version number of MediaWiki 1.22.6
+HEAD is now at ebb163995a... Updated release notes and version number for MediaWiki 1.24.0
+fatal: cannot stat path 'includes/Article.php': No such file or directory
+fatal: cannot stat path 'includes/CacheHelper.php': No such file or directory
+fatal: cannot stat path 'includes/Categoryfinder.php': No such file or directory
+fatal: cannot stat path 'includes/ChangesFeed.php': No such file or directory
+fatal: cannot stat path 'includes/FakeTitle.php': No such file or directory
+fatal: cannot stat path 'includes/ImagePage.php': No such file or directory
+fatal: cannot stat path 'includes/ImageQueryPage.php': No such file or directory
+fatal: cannot stat path 'includes/Init.php': No such file or directory
+fatal: cannot stat path 'includes/Namespace.php': No such file or directory
+fatal: cannot stat path 'includes/PageQueryPage.php': No such file or directory
+fatal: cannot stat path 'includes/Pager.php': No such file or directory
+fatal: cannot stat path 'includes/QueryPage.php': No such file or directory
+fatal: cannot stat path 'includes/Skin.php': No such file or directory
+fatal: cannot stat path 'includes/SkinTemplate.php': No such file or directory
+fatal: cannot stat path 'includes/UserMailer.php': No such file or directory
+fatal: cannot stat path 'includes/Wiki.php': No such file or directory
+fatal: cannot stat path 'includes/WikiFilePage.php': No such file or directory
+fatal: cannot stat path 'includes/WikiPage.php': No such file or directory
+fatal: cannot stat path 'includes/api/ApiQueryRedirects.php': No such file or directory
+fatal: cannot stat path 'includes/debug/Debug.php': No such file or directory
+fatal: cannot stat path 'includes/parser/Parser_DiffTest.php': No such file or directory
+fatal: cannot stat path 'includes/parser/Tidy.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerSimple.php': No such file or directory
+fatal: cannot stat path 'includes/resourceloader/ResourceLoaderLESSFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/revisiondelete/RevisionDelete.php': No such file or directory
+fatal: cannot stat path 'includes/revisiondelete/RevisionDeleteAbstracts.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialAllmessages.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialAllpages.php': No such file or directory
+fatal: cannot stat path 'includes/utils/ConfEditor.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverter_Expression.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverter_Fragment.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverter_Operator.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleEvaluator_Range.php': No such file or directory
+warning: inexact rename detection was skipped due to too many files.
+warning: you may want to set your diff.renameLimit variable to at least 497 and retry the command.
+fatal: cannot stat path 'maintenance/importTextFile.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/countMessages.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/rebuildLanguage.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/validate.php': No such file or directory
+fatal: cannot stat path 'maintenance/nextJobDB.php': No such file or directory
+fatal: cannot stat path 'skins/CologneBlue.php': No such file or directory
+fatal: cannot stat path 'skins/Modern.php': No such file or directory
+fatal: cannot stat path 'skins/MonoBook.php': No such file or directory
+fatal: cannot stat path 'skins/Vector.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/MediaWikiPHPUnitCommand.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/LocalisationCacheTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/RevisionStorageTest_ContentHandlerUseDB.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/SkinTemplateTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/WikiPageTest_ContentHandlerUseDB.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/libs/CSSJanusTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/resourceloader/ResourceLoaderLESSTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/specials/SpecialListFilesTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/maintenance/getSlaveServerTest.php': No such file or directory
+Previous HEAD position was ebb163995a... Updated release notes and version number for MediaWiki 1.24.0
+HEAD is now at 3168f88114... Updated release notes and version number for MediaWiki 1.23.9
+Previous HEAD position was 3168f88114... Updated release notes and version number for MediaWiki 1.23.9
+HEAD is now at 5045ffefed... Updated release notes and version number for MediaWiki 1.24.2
+Previous HEAD position was 5045ffefed... Updated release notes and version number for MediaWiki 1.24.2
+HEAD is now at f5c3ee0939... Prep for 1.25.0 general release, no more RCs
+fatal: cannot stat path 'includes/Cookie.php': No such file or directory
+fatal: cannot stat path 'includes/StatCounter.php': No such file or directory
+fatal: cannot stat path 'includes/cache/MapCacheLRU.php': No such file or directory
+fatal: cannot stat path 'includes/cache/bloom/BloomCache.php': No such file or directory
+fatal: cannot stat path 'includes/cache/bloom/BloomCacheRedis.php': No such file or directory
+fatal: cannot stat path 'includes/cache/bloom/BloomFilters.php': No such file or directory
+fatal: cannot stat path 'includes/deferred/ViewCountUpdate.php': No such file or directory
+fatal: cannot stat path 'includes/jobqueue/aggregator/JobQueueAggregatorMemc.php': No such file or directory
+fatal: cannot stat path 'includes/jobqueue/jobs/RefreshLinksJob2.php': No such file or directory
+fatal: cannot stat path 'includes/libs/CSSJanus.php': No such file or directory
+fatal: cannot stat path 'includes/normal/RandomTest.php': No such file or directory
+fatal: cannot stat path 'includes/normal/Utf8Test.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormal.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalBench.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalDefines.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalGenerate.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalMemStress.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalTest.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalTest2.php': No such file or directory
+fatal: cannot stat path 'includes/normal/UtfNormalUtil.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/APCBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/BagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/EmptyBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/HashBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/WinCacheBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/XCacheBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerMwprof.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerSimpleDB.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerSimpleText.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerSimpleTrace.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerSimpleUDP.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/ProfilerStandard.php': No such file or directory
+fatal: cannot stat path 'includes/resourceloader/ResourceLoaderFilePageModule.php': No such file or directory
+fatal: cannot stat path 'includes/resourceloader/ResourceLoaderNoscriptModule.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialPopularpages.php': No such file or directory
+fatal: cannot stat path 'includes/templates/NoLocalSettings.php': No such file or directory
+fatal: cannot stat path 'includes/utils/ArrayUtils.php': No such file or directory
+fatal: cannot stat path 'includes/utils/Cdb.php': No such file or directory
+fatal: cannot stat path 'includes/utils/CdbDBA.php': No such file or directory
+fatal: cannot stat path 'includes/utils/CdbPHP.php': No such file or directory
+fatal: cannot stat path 'includes/utils/StringUtils.php': No such file or directory
+fatal: cannot stat path 'maintenance/dumpSisterSites.php': No such file or directory
+fatal: cannot stat path 'maintenance/populateBloomCache.php': No such file or directory
+warning: inexact rename detection was skipped due to too many files.
+warning: you may want to set your diff.renameLimit variable to at least 1115 and retry the command.
+fatal: cannot stat path 'tests/phpunit/includes/ArrayUtilsTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/LocalFileTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/MWFunctionTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/PasswordTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/RequestContextTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/SpecialPageTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/WikiPageTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/XmlTypeCheckTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/cache/RedisBloomCacheTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/normal/CleanUpTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/resourceloader/ResourceLoaderStartupModuleTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/search/SearchUpdateTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/utils/CdbTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/utils/StringUtilsTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/languages/LanguageGvTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/languages/LanguageRuTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/languages/LanguageTlTest.php': No such file or directory
+Previous HEAD position was f5c3ee0939... Prep for 1.25.0 general release, no more RCs
+HEAD is now at e1b4416506... Update Releasenotes and version number for 1.25.2
+Previous HEAD position was e1b4416506... Update Releasenotes and version number for 1.25.2
+HEAD is now at 7514b1269a... 1.25.3 version bump and release notes
+Previous HEAD position was 7514b1269a... 1.25.3 version bump and release notes
+HEAD is now at fbe53db587... 1.25.4: Prep release notes and bump version number
+Previous HEAD position was fbe53db587... 1.25.4: Prep release notes and bump version number
+HEAD is now at 365e22ee61... Prep REL1_26 for general release
+fatal: cannot stat path 'includes/api/ApiFormatWddx.php': No such file or directory
+fatal: cannot stat path 'includes/libs/IPSet.php': No such file or directory
+fatal: cannot stat path 'includes/libs/ScopedPHPTimeout.php': No such file or directory
+fatal: cannot stat path 'maintenance/deleteImageMemcached.php': No such file or directory
+fatal: cannot stat path 'maintenance/fixSlaveDesync.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/api/format/ApiFormatDumpTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/api/format/ApiFormatWddxTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/libs/IPSetTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/utils/MWFunctionTest.php': No such file or directory
+Previous HEAD position was 365e22ee61... Prep REL1_26 for general release
+HEAD is now at 758cd9d237... Bump version number for release + remove alpha warnings
+fatal: cannot stat path 'includes/Collation.php': No such file or directory
+fatal: cannot stat path 'includes/Export.php': No such file or directory
+fatal: cannot stat path 'includes/Fallback.php': No such file or directory
+fatal: cannot stat path 'includes/api/ApiCreateAccount.php': No such file or directory
+fatal: cannot stat path 'includes/api/ApiQueryORM.php': No such file or directory
+fatal: cannot stat path 'includes/db/IORMRow.php': No such file or directory
+fatal: cannot stat path 'includes/db/IORMTable.php': No such file or directory
+fatal: cannot stat path 'includes/db/LBFactory.php': No such file or directory
+fatal: cannot stat path 'includes/db/ORMResult.php': No such file or directory
+fatal: cannot stat path 'includes/db/ORMRow.php': No such file or directory
+fatal: cannot stat path 'includes/db/ORMTable.php': No such file or directory
+fatal: cannot stat path 'includes/jobqueue/jobs/UploadFromUrlJob.php': No such file or directory
+fatal: cannot stat path 'includes/libs/RunningStat.php': No such file or directory
+fatal: cannot stat path 'includes/libs/eventrelayer/EventRelayerMCRD.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/MultiWriteBagOStuff.php': No such file or directory
+fatal: cannot stat path 'includes/objectcache/ObjectCacheSessionHandler.php': No such file or directory
+fatal: cannot stat path 'includes/profiler/output/ProfilerOutputUdp.php': No such file or directory
+fatal: cannot stat path 'includes/specials/SpecialUserlogin.php': No such file or directory
+fatal: cannot stat path 'includes/templates/Usercreate.php': No such file or directory
+fatal: cannot stat path 'includes/templates/Userlogin.php': No such file or directory
+fatal: cannot stat path 'languages/Names.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverter.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverterExpression.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverterFragment.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleConverterOperator.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleError.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleEvaluator.php': No such file or directory
+fatal: cannot stat path 'languages/utils/CLDRPluralRuleEvaluatorRange.php': No such file or directory
+fatal: cannot stat path 'maintenance/clearCacheStats.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/generateUtf8Case.php': No such file or directory
+fatal: cannot stat path 'maintenance/showCacheStats.php': No such file or directory
+fatal: cannot stat path 'opensearch_desc.php5': No such file or directory
+fatal: cannot stat path 'profileinfo.php5': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/ConsecutiveParametersMatcher.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/FallbackTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/GlobalFunctions/wfBaseConvertTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/HtmlFormatterTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/api/ApiCreateAccountTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/api/format/ApiFormatDbgTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/api/format/ApiFormatTxtTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/db/ORMRowTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/db/ORMTableTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/db/TestORMRowTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/libs/RunningStatTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/objectcache/WANObjectCacheTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/languages/utils/CLDRPluralRuleEvaluatorTest.php': No such file or directory
+fatal: cannot stat path 'thumb.php5': No such file or directory
+fatal: cannot stat path 'thumb_handler.php5': No such file or directory
+Previous HEAD position was 758cd9d237... Bump version number for release + remove alpha warnings
+HEAD is now at 34bc8899bf... Drop rc status, time for 1.28.0 final
+fatal: cannot stat path 'includes/HttpFunctions.php': No such file or directory
+fatal: cannot stat path 'includes/db/ChronologyProtector.php': No such file or directory
+fatal: cannot stat path 'includes/db/DatabaseError.php': No such file or directory
+fatal: cannot stat path 'includes/db/DatabaseUtility.php': No such file or directory
+fatal: cannot stat path 'includes/db/loadbalancer/LBFactory.php': No such file or directory
+fatal: cannot stat path 'includes/db/loadbalancer/LBFactorySimple.php': No such file or directory
+fatal: cannot stat path 'includes/db/loadbalancer/LoadBalancer.php': No such file or directory
+fatal: cannot stat path 'includes/db/loadbalancer/LoadMonitorMySQL.php': No such file or directory
+fatal: cannot stat path 'includes/deferred/CallableUpdate.php': No such file or directory
+fatal: cannot stat path 'includes/exception/TimestampException.php': No such file or directory
+fatal: cannot stat path 'includes/filebackend/FileOp.php': No such file or directory
+fatal: cannot stat path 'includes/filebackend/lockmanager/DBLockManager.php': No such file or directory
+fatal: cannot stat path 'includes/libs/ScopedCallback.php': No such file or directory
+fatal: cannot stat path 'includes/title/MediaWikiPageLinkRenderer.php': No such file or directory
+fatal: cannot stat path 'includes/title/PageLinkRenderer.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageEo.php': No such file or directory
+fatal: cannot stat path 'tests/parserTests.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/parser/NewParserTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/title/MediaWikiPageLinkRendererTest.php': No such file or directory
+Previous HEAD position was 34bc8899bf... Drop rc status, time for 1.28.0 final
+HEAD is now at a112e4fa48... Allow SVGs using an older proposed recommendation DTD
+fatal: cannot stat path 'includes/actions/RevisiondeleteAction.php': No such file or directory
+fatal: cannot stat path 'includes/filerepo/FSRepo.php': No such file or directory
+fatal: cannot stat path 'includes/libs/time/ConvertibleTimestamp.php': No such file or directory
+fatal: cannot stat path 'includes/libs/time/TimestampException.php': No such file or directory
+fatal: cannot stat path 'includes/libs/time/defines.php': No such file or directory
+fatal: cannot stat path 'includes/registration/CoreVersionChecker.php': No such file or directory
+fatal: cannot stat path 'includes/resourceloader/ResourceLoaderUserCSSPrefsModule.php': No such file or directory
+fatal: cannot stat path 'languages/classes/LanguageHe.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/data/helpers/WellProtectedClass.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/TestingAccessWrapperTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/installer/DatabaseUpdaterTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/libs/time/ConvertibleTimestampTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/includes/registration/CoreVersionCheckerTest.php': No such file or directory
+fatal: cannot stat path 'tests/phpunit/specials/SpecialSearchTest.php': No such file or directory
+Previous HEAD position was a112e4fa48... Allow SVGs using an older proposed recommendation DTD
+HEAD is now at 60c6000737... This commit was manufactured by cvs2svn to create tag 'REL1_5_2'.
+fatal: cannot stat path 'maintenance/archives/moveCustomMessages.php': No such file or directory
+Previous HEAD position was 60c6000737... This commit was manufactured by cvs2svn to create tag 'REL1_5_2'.
+HEAD is now at c7733ad8e5... Add date to the release notice
+fatal: cannot stat path 'includes/BlockCache.php': No such file or directory
+fatal: cannot stat path 'includes/FulltextStoplist.php': No such file or directory
+fatal: cannot stat path 'includes/SearchMySQL3.php': No such file or directory
+fatal: cannot stat path 'includes/SkinPHPTal.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialMaintenance.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialValidate.php': No such file or directory
+fatal: cannot stat path 'includes/UserTalkUpdate.php': No such file or directory
+fatal: cannot stat path 'includes/killthread.php': No such file or directory
+fatal: cannot stat path 'maintenance/convertUtf8.php': No such file or directory
+fatal: cannot stat path 'maintenance/dumpRev.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/Amethyst.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/Chick.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/MonoBookTal.php': No such file or directory
+fatal: cannot stat path 'skins/disabled/WikimediaWiki.php': No such file or directory
+fatal: cannot stat path 'tests/SearchMySQL3Test.php': No such file or directory
+Previous HEAD position was c7733ad8e5... Add date to the release notice
+HEAD is now at d733698ddc... fix backported linktrail regex
+fatal: cannot stat path 'includes/Group.php': No such file or directory
+fatal: cannot stat path 'includes/PersistentObject.php': No such file or directory
+fatal: cannot stat path 'includes/SpecialGroups.php': No such file or directory
+fatal: cannot stat path 'includes/UpdateClasses.php': No such file or directory
+fatal: cannot stat path 'includes/templates/Confirmemail.php': No such file or directory
+fatal: cannot stat path 'maintenance/portal.php': No such file or directory
+Previous HEAD position was d733698ddc... fix backported linktrail regex
+HEAD is now at effc3d8105... fix typo in debug line
+fatal: cannot stat path 'includes/DatabaseMysql.php': No such file or directory
+fatal: cannot stat path 'includes/ParserXML.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAb.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAf.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageArc.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAst.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAy.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageAz.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBat_smg.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBe.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBg.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBm.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageBs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCe.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCsb.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageCy.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageDa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageDe.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageDv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageDz.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEl.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEt.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageEu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFur.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageFy.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageGa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageGn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageGu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageHe.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageHi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageHr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageHu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageIa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageId.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageIi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageIs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageIt.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageJa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageJv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKm.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageKv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageLa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageLi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageLo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageLt.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageMk.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageMl.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageMs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNah.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNap.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNds.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNds_nl.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNl.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNon.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageNv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageOc.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageOr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageOs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePl.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePms.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePs.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePt.php': No such file or directory
+fatal: cannot stat path 'languages/LanguagePt_br.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageQu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageRmy.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageRo.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageRu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSc.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSd.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSk.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSq.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSr_ec.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSr_el.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSu.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageSv.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTe.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTh.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTt.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageTy.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageUdm.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageUg.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageUk.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageUr.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageUtf8.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageVec.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageVi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageWa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageYi.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageZa.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageZh_cn.php': No such file or directory
+fatal: cannot stat path 'languages/LanguageZh_tw.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesEs.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesHu.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesJv.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesSr_ec.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesSr_el.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesTt.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesUdm.php': No such file or directory
+fatal: cannot stat path 'languages/MessagesXal.php': No such file or directory
+fatal: cannot stat path 'maintenance/alltrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/checktrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/duplicatetrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/redundanttrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/transstat.php': No such file or directory
+fatal: cannot stat path 'maintenance/trivialCmdLine.php': No such file or directory
+fatal: cannot stat path 'maintenance/wiki-mangleme.php': No such file or directory
+Previous HEAD position was effc3d8105... fix typo in debug line
+HEAD is now at aaffdba1a1... bump to 1.9.0
+fatal: cannot stat path 'maintenance/language/checktrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/duplicatetrans.php': No such file or directory
+fatal: cannot stat path 'maintenance/language/unusedMessages.php': No such file or directory
+fatal: cannot stat path 'maintenance/rebuildMessages.php': No such file or directory
+Previous HEAD position was aaffdba1a1... bump to 1.9.0
+HEAD is now at 8904f9de42... note there's more notes below
+fatal: cannot stat path 'languages/classes/LanguageVi.php': No such file or directory

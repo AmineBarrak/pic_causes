@@ -1,0 +1,16 @@
+ADD wp-admin/includes/ajax-actions.php 2764
+ADD wp-admin/revision.php 66
+ADD wp-content/plugins/akismet/class.akismet.php 1130
+ADD wp-includes/formatting.php 1393
+ADD wp-includes/formatting.php 1394
+ADD wp-includes/formatting.php 1395
+ADD wp-includes/formatting.php 1396
+ADD wp-includes/formatting.php 1397
+ADD wp-includes/version.php 7
+DEL wp-admin/includes/ajax-actions.php 2764
+DEL wp-admin/revision.php 66
+DEL wp-content/plugins/akismet/class.akismet.php 1122
+DEL wp-includes/pluggable.php 987
+DEL wp-includes/pluggable.php 988
+DEL wp-includes/pluggable.php 989
+DEL wp-includes/version.php 7

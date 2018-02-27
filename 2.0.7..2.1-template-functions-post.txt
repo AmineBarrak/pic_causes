@@ -1,0 +1,1403 @@
+-<?php
+-
+-function get_the_password_form() {
+-	$output = '<form action="' . get_settings('siteurl') . '/wp-pass.php" method="post">
+-	<p>' . __("This post is password protected. To view it please enter your password below:") . '</p>
+-	<p><label>' . __("Password:") . ' <input name="post_password" type="password" size="20" /></label> <input type="submit" name="Submit" value="' . __("Submit") . '" /></p>
+-	</form>
+-	';
+-	return $output;
+-}
+-
+-
+-function the_ID() {
+-	global $id;
+-	echo $id;
+-}
+-
+-function get_the_ID() {
+-	global $id;
+-	return $id;
+-}
+-
+-function the_title($before = '', $after = '', $echo = true) {
+-	$title = get_the_title();
+-	if ( strlen($title) > 0 ) {
+-		$title = apply_filters('the_title', $before . $title . $after, $before, $after);
+-		if ( $echo )
+-			echo $title;
+-		else
+-			return $title;
+-	}
+-}
+-
+-
+-function get_the_title($id = 0) {
+-	$post = &get_post($id);
+-
+-	$title = $post->post_title;
+-	if ( !empty($post->post_password) )
+-		$title = sprintf(__('Protected: %s'), $title);
+-
+-	return $title;
+-}
+-
+-
+-function get_the_guid( $id = 0 ) {
+-	$post = &get_post($id);
+-
+-	return apply_filters('get_the_guid', $post->guid);
+-}
+-
+-
+-function the_guid( $id = 0 ) {
+-	echo get_the_guid($id);
+-}
+-
+-
+-function the_content($more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
+-	$content = get_the_content($more_link_text, $stripteaser, $more_file);
+-	$content = apply_filters('the_content', $content);
+-	$content = str_replace(']]>', ']]&gt;', $content);
+-	echo $content;
+-}
+-
+-
+-function get_the_content($more_link_text = '(more...)', $stripteaser = 0, $more_file = '') {
+-	global $id, $post, $more, $single, $withcomments, $page, $pages, $multipage, $numpages;
+-	global $preview;
+-	global $pagenow;
+-	$output = '';
+-
+-	if ( !empty($post->post_password) ) { // if there's a password
+-		if ( stripslashes($_COOKIE['wp-postpass_'.COOKIEHASH]) != $post->post_password ) {	// and it doesn't match the cookie
+-			$output = get_the_password_form();
+-			return $output;
+-		}
+-	}
+-
+-	if ( $more_file != '' )
+-		$file = $more_file;
+-	else
+-		$file = $pagenow; //$_SERVER['PHP_SELF'];
+-
+-	$content = $pages[$page-1];
+-	$content = explode('<!--more-->', $content, 2);
+-	if ( (false !== strpos($post->post_content, '<!--noteaser-->') && ((!$multipage) || ($page==1))) )
+-		$stripteaser = 1;
+-	$teaser = $content[0];
+-	if ( ($more) && ($stripteaser) )
+-		$teaser = '';
+-	$output .= $teaser;
+-	if ( count($content) > 1 ) {
+-		if ( $more )
+-			$output .= '<a id="more-'.$id.'"></a>'.$content[1];
+-		else
+-			$output = balanceTags($output . ' <a href="'. get_permalink() . "#more-$id\">$more_link_text</a>");
+-	}
+-	if ( $preview ) // preview fix for javascript bug with foreign languages
+-		$output =	preg_replace('/\%u([0-9A-F]{4,4})/e',	"'&#'.base_convert('\\1',16,10).';'", $output);
+-
+-	return $output;
+-}
+-
+-
+-function the_excerpt() {
+-	echo apply_filters('the_excerpt', get_the_excerpt());
+-}
+-
+-
+-function get_the_excerpt($fakeit = true) {
+-	global $id, $post;
+-	$output = '';
+-	$output = $post->post_excerpt;
+-	if ( !empty($post->post_password) ) { // if there's a password
+-		if ( $_COOKIE['wp-postpass_'.COOKIEHASH] != $post->post_password ) {  // and it doesn't match the cookie
+-			$output = __('There is no excerpt because this is a protected post.');
+-			return $output;
+-		}
+-	}
+-
+-	return apply_filters('get_the_excerpt', $output);
+-}
+-
+-
+-function wp_link_pages($args = '') {
+-	parse_str($args, $r);
+-	if ( !isset($r['before']) )
+-		$r['before'] = '<p>' . __('Pages:');
+-	if ( !isset($r['after']) )
+-		$r['after'] = '</p>';
+-	if ( !isset($r['next_or_number']) )
+-		$r['next_or_number'] = 'number';
+-	if ( !isset($r['nextpagelink']) )
+-		$r['nextpagelink'] = 'Next page';
+-	if ( !isset($r['previouspagelink']) )
+-		$r['previouspagelink'] = 'Previous page';
+-	if ( !isset($r['pagelink']) )
+-		$r['pagelink'] = '%';
+-	if ( !isset($r['more_file']) )
+-		$r['more_file'] = '';
+-
+-	link_pages($r['before'], $r['after'], $r['next_or_number'], $r['nextpagelink'], $r['previouspagelink'], $r['pagelink'], $r['more_file']);
+-}
+-
+-
+-function link_pages($before='<br />', $after='<br />', $next_or_number='number', $nextpagelink='next page', $previouspagelink='previous page', $pagelink='%', $more_file='') {
+-	global $id, $page, $numpages, $multipage, $more, $pagenow;
+-	if ( $more_file != '' )
+-		$file = $more_file;
+-	else
+-		$file = $pagenow;
+-	if ( $multipage ) {
+-		if ( 'number' == $next_or_number ) {
+-			echo $before;
+-			for ( $i = 1; $i < ($numpages+1); $i = $i + 1 ) {
+-				$j = str_replace('%',"$i",$pagelink);
+-				echo ' ';
+-				if ( ($i != $page) || ((!$more) && ($page==1)) ) {
+-					if ( '' == get_settings('permalink_structure') )
+-						echo '<a href="' . get_permalink() . '&amp;page=' . $i . '">';
+-					else
+-						echo '<a href="' . trailingslashit( get_permalink() ) . $i . '/">';
+-				}
+-				echo $j;
+-				if ( ($i != $page) || ((!$more) && ($page==1)) )
+-					echo '</a>';
+-			}
+-			echo $after;
+-		} else {
+-			if ( $more ) {
+-				echo $before;
+-				$i = $page - 1;
+-				if ( $i && $more ) {
+-					if ( '' == get_settings('permalink_structure') )
+-						echo '<a href="' . get_permalink() . '&amp;page=' . $i . '">'.$previouspagelink.'</a>';
+-					else
+-						echo '<a href="' . get_permalink() . $i . '/">'.$previouspagelink.'</a>';
+-				}
+-				$i = $page + 1;
+-				if ( $i <= $numpages && $more ) {
+-					if ( '' == get_settings('permalink_structure') )
+-						echo '<a href="'.get_permalink() . '&amp;page=' . $i . '">'.$nextpagelink.'</a>';
+-					else
+-						echo '<a href="'.get_permalink().$i.'/">'.$nextpagelink.'</a>';
+-				}
+-				echo $after;
+-			}
+-		}
+-	}
+-}
+-
+-
+-/*
+-Post-meta: Custom per-post fields.
+-*/
+-
+-
+-function get_post_custom( $post_id = 0 ) {
+-	global $id, $post_meta_cache, $wpdb;
+-
+-	if ( ! $post_id )
+-		$post_id = $id;
+-
+-	if ( isset($post_meta_cache[$post_id]) )
+-		return $post_meta_cache[$post_id];
+-
+-	if ( $meta_list = $wpdb->get_results("SELECT post_id, meta_key, meta_value FROM $wpdb->postmeta	WHERE post_id = '$post_id' ORDER BY post_id, meta_key", ARRAY_A) ) {
+-		// Change from flat structure to hierarchical:
+-		$post_meta_cache = array();
+-		foreach ( $meta_list as $metarow ) {
+-			$mpid = $metarow['post_id'];
+-			$mkey = $metarow['meta_key'];
+-			$mval = $metarow['meta_value'];
+-
+-			// Force subkeys to be array type:
+-			if ( !isset($post_meta_cache[$mpid]) || !is_array($post_meta_cache[$mpid]) )
+-				$post_meta_cache[$mpid] = array();
+-
+-			if ( !isset($post_meta_cache[$mpid]["$mkey"]) || !is_array($post_meta_cache[$mpid]["$mkey"]) )
+-				$post_meta_cache[$mpid]["$mkey"] = array();
+-
+-			// Add a value to the current pid/key:
+-			$post_meta_cache[$mpid][$mkey][] = $mval;
+-		}
+-		return $post_meta_cache[$mpid];
+-	}
+-}
+-
+-
+-function get_post_custom_keys() {
+-	$custom = get_post_custom();
+-
+-	if ( ! is_array($custom) )
+-		return;
+-
+-	if ( $keys = array_keys($custom) )
+-		return $keys;
+-}
+-
+-
+-function get_post_custom_values( $key = '' ) {
+-	$custom = get_post_custom();
+-
+-	return $custom[$key];
+-}
+-
+-
+-function post_custom( $key = '' ) {
+-	$custom = get_post_custom();
+-
+-	if ( 1 == count($custom[$key]) )
+-		return $custom[$key][0];
+-	else
+-		return $custom[$key];
+-}
+-
+-
+-// this will probably change at some point...
+-function the_meta() {
+-	global $id, $post_meta_cache;
+-
+-	if ( $keys = get_post_custom_keys() ) {
+-		echo "<ul class='post-meta'>\n";
+-		foreach ( $keys as $key ) {
+-			$keyt = trim($key);
+-			if ( '_' == $keyt{0} )
+-				continue;
+-			$values = array_map('trim', get_post_custom_values($key));
+-			$value = implode($values,', ');
+-			echo "<li><span class='post-meta-key'>$key:</span> $value</li>\n";
+-		}
+-		echo "</ul>\n";
+-	}
+-}
+-
+-
+-/*
+-Pages
+-*/
+-
+-function walk_page_tree() {
+-	$walker = new Walker_Page;
+-	$args = func_get_args();
+-	return call_user_func_array(array(&$walker, 'walk'), $args);
+-}
+-
+-function walk_page_dropdown_tree() {
+-	$walker = new Walker_PageDropdown;
+-	$args = func_get_args();
+-	return call_user_func_array(array(&$walker, 'walk'), $args);
+-}
+-
+-function &get_page_children($page_id, $pages) {
+-	global $page_cache;
+-
+-	if ( empty($pages) )
+-		$pages = &$page_cache;
+-
+-	$page_list = array();
+-	foreach ( $pages as $page ) {
+-		if ( $page->post_parent == $page_id ) {
+-			$page_list[] = $page;
+-			if ( $children = get_page_children($page->ID, $pages) )
+-				$page_list = array_merge($page_list, $children);
+-		}
+-	}
+-	return $page_list;
+-}
+-
+-
+-function &get_pages($args = '') {
+-	global $wpdb;
+-
+-	if ( is_array($args) )
+-		$r = &$args;
+-	else
+-		parse_str($args, $r);
+-
+-	$defaults = array('child_of' => 0, 'sort_order' => 'ASC', 'sort_column' => 'post_title',
+-				'hierarchical' => 1, 'exclude' => '', 'include' => '', 'meta_key' => '', 'meta_value' => '');
+-	$r = array_merge($defaults, $r);
+-	extract($r);
+-
+-	$inclusions = '';
+-	if ( !empty($include) ) {
+-		$child_of = 0; //ignore child_of, exclude, meta_key, and meta_value params if using include 
+-		$exclude = '';  
+-		$meta_key = '';
+-		$meta_value = '';
+-		$incpages = preg_split('/[\s,]+/',$include);
+-		if ( count($incpages) ) {
+-			foreach ( $incpages as $incpage ) {
+-				if (empty($inclusions))
+-					$inclusions = ' AND ( ID = ' . intval($incpage) . ' ';
+-				else
+-					$inclusions .= ' OR ID = ' . intval($incpage) . ' ';
+-			}
+-		}
+-	}
+-	if (!empty($inclusions)) 
+-		$inclusions .= ')';	
+-
+-	$exclusions = '';
+-	if ( !empty($exclude) ) {
+-		$expages = preg_split('/[\s,]+/',$exclude);
+-		if ( count($expages) ) {
+-			foreach ( $expages as $expage ) {
+-				if (empty($exclusions))
+-					$exclusions = ' AND ( ID <> ' . intval($expage) . ' ';
+-				else
+-					$exclusions .= ' AND ID <> ' . intval($expage) . ' ';
+-			}
+-		}
+-	}
+-	if (!empty($exclusions)) 
+-		$exclusions .= ')';
+-
+-	$query = "SELECT * FROM $wpdb->posts " ;
+-	$query .= ( empty( $meta_key ) ? "" : ", $wpdb->postmeta " ) ; 
+-	$query .= " WHERE (post_type = 'page' AND post_status = 'publish') $exclusions $inclusions " ;
+-	$query .= ( empty( $meta_key ) | empty($meta_value)  ? "" : " AND ($wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '$meta_key' AND $wpdb->postmeta.meta_value = '$meta_value' )" ) ;
+-	$query .= " ORDER BY " . $sort_column . " " . $sort_order ;
+-
+-	$pages = $wpdb->get_results($query);
+-	$pages = apply_filters('get_pages', $pages, $r);
+-
+-	if ( empty($pages) )
+-		return array();
+-
+-	// Update cache.
+-	update_page_cache($pages);
+-
+-	if ( $child_of || $hierarchical )
+-		$pages = & get_page_children($child_of, $pages);
+-
+-	return $pages;
+-}
+-
+-function wp_dropdown_pages($args = '') {
+-	if ( is_array($args) )
+-		$r = &$args;
+-	else
+-		parse_str($args, $r);
+-
+-	$defaults = array('depth' => 0, 'child_of' => 0, 'selected' => 0, 'echo' => 1,
+-		'name' => 'page_id');
+-	$r = array_merge($defaults, $r);
+-	extract($r);
+-
+-	$pages = get_pages($r);
+-	$output = '';
+-
+-	if ( ! empty($pages) ) {
+-		$output = "<select name='$name'>\n";
+-		$output .= walk_page_dropdown_tree($pages, $depth, $r);
+-		$output .= "</select>\n";
+-	}
+-
+-	$output = apply_filters('wp_dropdown_pages', $output);
+-
+-	if ( $echo )
+-		echo $output;
+-
+-	return $output;
+-}
+-
+-function wp_list_pages($args = '') {
+-	if ( is_array($args) )
+-		$r = &$args;
+-	else
+-		parse_str($args, $r);
+-
+-	$defaults = array('depth' => 0, 'show_date' => '', 'date_format' => get_settings('date_format'),
+-		'child_of' => 0, 'title_li' => __('Pages'), 'echo' => 1);
+-	$r = array_merge($defaults, $r);
+-
+-	$output = '';
+-
+-	// Query pages.
+-	$pages = get_pages($r);
+-
+-	if ( !empty($pages) ) {
+-		if ( $r['title_li'] )
+-			$output .= '<li class="pagenav">' . $r['title_li'] . '<ul>';
+-
+-		global $wp_query;
+-		$current_page = $wp_query->get_queried_object_id();
+-		$output .= walk_page_tree($pages, $r['depth'], $current_page, $r['show_date'], $r['date_format']);
+-
+-		if ( $r['title_li'] )
+-			$output .= '</ul></li>';
+-	}
+-
+-	$output = apply_filters('wp_list_pages', $output);
+-
+-	if ( $r['echo'] )
+-		echo $output;
+-	else
+-		return $output;
+-}
+-
+-function the_attachment_link($id = 0, $fullsize = false, $max_dims = false) {
+-	echo get_the_attachment_link($id, $fullsize, $max_dims);
+-}
+-
+-function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false) {
+-	$id = (int) $id;
+-	$_post = & get_post($id);
+-
+-	if ( ('attachment' != $_post->post_type) || ('' == $_post->guid) )
+-		return __('Missing Attachment');
+-
+-	if (! empty($_post->guid) ) {
+-		$innerHTML = get_attachment_innerHTML($_post->ID, $fullsize, $max_dims);
+-
+-		return "<a href=\"{$_post->guid}\" title=\"{$_post->post_title}\" >{$innerHTML}</a>";
+-
+-	} else {
+-		$p .= __('Missing attachment');
+-	}
+-	return $p;
+-}
+-
+-function get_attachment_icon($id = 0, $fullsize = false, $max_dims = false) {
+-	$id = (int) $id;
+-	$post = & get_post($id);
+-
+-	$mime = $post->post_mime_type;
+-
+-	$imagedata = get_post_meta($post->ID, '_wp_attachment_metadata', true);
+-
+-	$file = get_post_meta($post->ID, '_wp_attached_file', true);
+-
+-	if ( !$fullsize && !empty($imagedata['thumb'])
+-			&& ($thumbfile = str_replace(basename($file), $imagedata['thumb'], $file))
+-			&& file_exists($thumbfile) ) {
+-
+-		// We have a thumbnail desired, specified and existing
+-
+-		$src = str_replace(basename($post->guid), $imagedata['thumb'], $post->guid);
+-		$src_file = $thumbfile;
+-		$class = 'attachmentthumb';
+-
+-	} elseif ( substr($mime, 0, 6) == 'image/'
+-			&& file_exists($file) ) {
+-
+-		// We have an image without a thumbnail
+-
+-		$src = $post->guid;
+-		$src_file = & $file;
+-		$class = 'attachmentimage';
+-	} elseif (! empty($mime) ) {
+-
+-		// No thumb, no image. We'll look for a mime-related icon instead.
+-		$icon_dir = apply_filters('icon_dir', get_template_directory().'/images');
+-		$icon_dir_uri = apply_filters('icon_dir_uri', get_template_directory_uri().'/images');
+-
+-		$types = array(substr($mime, 0, strpos($mime, '/')), substr($mime, strpos($mime, '/') + 1), str_replace('/', '_', $mime));
+-		$exts = array('jpg', 'gif', 'png');
+-		foreach ($types as $type) {
+-			foreach ($exts as $ext) {
+-				$src_file = "$icon_dir/$type.$ext";
+-				if ( file_exists($src_file) ) {
+-					$src = "$icon_dir_uri/$type.$ext";
+-					break 2;
+-				}
+-			}
+-		}
+-	}
+-
+-	if (! isset($src) )
+-		return false;
+-
+-	// Do we need to constrain the image?
+-	if ( ($max_dims = apply_filters('attachment_max_dims', $max_dims)) && file_exists($src_file) ) {
+-
+-		$imagesize = getimagesize($src_file);
+-
+-		if (($imagesize[0] > $max_dims[0]) || $imagesize[1] > $max_dims[1] ) {
+-			$actual_aspect = $imagesize[0] / $imagesize[1];
+-			$desired_aspect = $max_dims[0] / $max_dims[1];
+-
+-			if ( $actual_aspect >= $desired_aspect ) {
+-				$height = $actual_aspect * $max_dims[0];
+-				$constraint = "width=\"{$max_dims[0]}\" ";
+-				$post->iconsize = array($max_dims[0], $height);
+-			} else {
+-				$width = $max_dims[1] / $actual_aspect;
+-				$constraint = "height=\"{$max_dims[1]}\" ";
+-				$post->iconsize = array($width, $max_dims[1]);
+-			}
+-		} else {
+-			$post->iconsize = array($imagesize[0], $imagesize[1]);
+-		}
+-	}
+-
+-	$icon = "<img src=\"{$src}\" title=\"{$post->post_title}\" alt=\"{$post->post_title}\" {$constraint}/>";
+-
+-	return apply_filters('attachment_icon', $icon, $post->ID);
+-}
+-
+-function get_attachment_innerHTML($id = 0, $fullsize = false, $max_dims = false) {
+-	$id = (int) $id;
+-
+-	if ( $innerHTML = get_attachment_icon($id, $fullsize, $max_dims))
+-		return $innerHTML;
+-
+-	$post = & get_post($id);
+-
+-	$innerHTML = $post->post_title;
+-
+-	return apply_filters('attachment_innerHTML', $innerHTML, $post->ID);
+-}
+-
+-function prepend_attachment($content) {
+-	$p = '<p class="attachment">';
+-	$p .= get_the_attachment_link(false, true, array(400, 300));
+-	$p .= '</p>';
+-	$p = apply_filters('prepend_attachment', $p);
+-
+-	return "$p\n$content";
+-}
+-
+-?>
+
+commit 45302e1c22680565e70f59829c4cfd707e879131
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Apr 25 08:46:19 2006 +0000
+
+    Div balance across more.  Props skeltoac.  fixes #2348
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3751 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 461d6e551b..40e3b325f4 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -83,7 +83,7 @@ function get_the_content($more_link_text = '(more...)', $stripteaser = 0, $more_
+ 
+ 	$content = $pages[$page-1];
+ 	$content = explode('<!--more-->', $content, 2);
+-	if ( (preg_match('/<!--noteaser-->/', $post->post_content) && ((!$multipage) || ($page==1))) )
++	if ( (false !== strpos($post->post_content, '<!--noteaser-->') && ((!$multipage) || ($page==1))) )
+ 		$stripteaser = 1;
+ 	$teaser = $content[0];
+ 	if ( ($more) && ($stripteaser) )
+@@ -93,7 +93,7 @@ function get_the_content($more_link_text = '(more...)', $stripteaser = 0, $more_
+ 		if ( $more )
+ 			$output .= '<a id="more-'.$id.'"></a>'.$content[1];
+ 		else
+-			$output .= ' <a href="'. get_permalink() . "#more-$id\">$more_link_text</a>";
++			$output = balanceTags($output . ' <a href="'. get_permalink() . "#more-$id\">$more_link_text</a>");
+ 	}
+ 	if ( $preview ) // preview fix for javascript bug with foreign languages
+ 		$output =	preg_replace('/\%u([0-9A-F]{4,4})/e',	"'&#'.base_convert('\\1',16,10).';'", $output);
+
+commit a785678283b09c159fa845fceaedb743a2136b69
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Apr 25 00:05:59 2006 +0000
+
+    Fix page depth, again. PRops skeltoac. fixes #2690
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3750 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 62a6b312b2..461d6e551b 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -425,7 +425,7 @@ function wp_list_pages($args = '') {
+ 
+ 		global $wp_query;
+ 		$current_page = $wp_query->get_queried_object_id();
+-		$output .= walk_page_tree($pages, $depth, $current_page, $r['show_date'], $r['date_format']);
++		$output .= walk_page_tree($pages, $r['depth'], $current_page, $r['show_date'], $r['date_format']);
+ 
+ 		if ( $r['title_li'] )
+ 			$output .= '</ul></li>';
+
+commit a8eac8ee6de01894af258edf057508b4f0c0bfe9
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Thu Apr 13 04:40:48 2006 +0000
+
+    Move page walkers to classes.  Props David House. fixes #2593
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3704 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 26bfdce96a..62a6b312b2 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -278,6 +278,17 @@ function the_meta() {
+ Pages
+ */
+ 
++function walk_page_tree() {
++	$walker = new Walker_Page;
++	$args = func_get_args();
++	return call_user_func_array(array(&$walker, 'walk'), $args);
++}
++
++function walk_page_dropdown_tree() {
++	$walker = new Walker_PageDropdown;
++	$args = func_get_args();
++	return call_user_func_array(array(&$walker, 'walk'), $args);
++}
+ 
+ function &get_page_children($page_id, $pages) {
+ 	global $page_cache;
+@@ -381,7 +392,7 @@ function wp_dropdown_pages($args = '') {
+ 
+ 	if ( ! empty($pages) ) {
+ 		$output = "<select name='$name'>\n";
+-		$output .= walk_page_tree($pages, $depth, '_page_dropdown_element', '', '', '', $selected);
++		$output .= walk_page_dropdown_tree($pages, $depth, $r);
+ 		$output .= "</select>\n";
+ 	}
+ 
+@@ -393,20 +404,6 @@ function wp_dropdown_pages($args = '') {
+ 	return $output;
+ }
+ 
+-function _page_dropdown_element($output, $page, $depth, $selected) {
+-	$pad = str_repeat('&nbsp;', $depth * 3);
+-
+-	$output .= "\t<option value=\"$page->ID\"";
+-	if ( $page->ID == $selected )
+-		$output .= ' selected="selected"';
+-	$output .= '>';
+-	$title = wp_specialchars($page->post_title);
+-	$output .= "$pad$title";
+-	$output .= "</option>\n";
+-
+-	return $output;
+-}
+-
+ function wp_list_pages($args = '') {
+ 	if ( is_array($args) )
+ 		$r = &$args;
+@@ -428,7 +425,7 @@ function wp_list_pages($args = '') {
+ 
+ 		global $wp_query;
+ 		$current_page = $wp_query->get_queried_object_id();
+-		$output .= walk_page_tree($pages, $r['depth'], '_page_list_element_start', '_page_list_element_end', '_page_list_level_start', '_page_list_level_end', $current_page, $r['show_date'], $r['date_format']);
++		$output .= walk_page_tree($pages, $depth, $current_page, $r['show_date'], $r['date_format']);
+ 
+ 		if ( $r['title_li'] )
+ 			$output .= '</ul></li>';
+@@ -442,46 +439,6 @@ function wp_list_pages($args = '') {
+ 		return $output;
+ }
+ 
+-function _page_list_level_start($output, $depth) {
+-	$indent = str_repeat("\t", $depth);
+-	$output .= "$indent<ul>\n";
+-	return $output;
+-}
+-
+-function _page_list_level_end($output, $depth) {
+-	$indent = str_repeat("\t", $depth);
+-	$output .= "$indent</ul>\n";
+-	return $output;
+-}
+-
+-function _page_list_element_start($output, $page, $depth, $current_page, $show_date, $date_format) {
+-	if ( $depth )
+-		$indent = str_repeat("\t", $depth);
+-
+-	$css_class = 'page_item';
+-	if ( $page->ID == $current_page )
+-		$css_class .= ' current_page_item';
+-
+-	$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_page_link($page->ID) . '" title="' . wp_specialchars($page->post_title) . '">' . $page->post_title . '</a>';
+-
+-	if ( !empty($show_date) ) {
+-		if ( 'modified' == $show_date )
+-			$time = $page->post_modified;
+-		else
+-			$time = $page->post_date;
+-
+-		$output .= " " . mysql2date($date_format, $time);
+-	}
+-
+-	return $output;
+-}
+-
+-function _page_list_element_end($output, $page, $depth) {
+-	$output .= "</li>\n";
+-
+-	return $output;
+-}
+-
+ function the_attachment_link($id = 0, $fullsize = false, $max_dims = false) {
+ 	echo get_the_attachment_link($id, $fullsize, $max_dims);
+ }
+
+commit 4390af2a82df9ca7f80dfc9db98e0ae57d415f9a
+Author: matt <matt@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Sun Apr 9 22:08:18 2006 +0000
+
+    walk_tree broken, fixes #2608
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3701 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index ae39d3ce61..26bfdce96a 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -428,7 +428,7 @@ function wp_list_pages($args = '') {
+ 
+ 		global $wp_query;
+ 		$current_page = $wp_query->get_queried_object_id();
+-		$output .= walk_page_tree($pages, $depth, '_page_list_element_start', '_page_list_element_end', '_page_list_level_start', '_page_list_level_end', $current_page, $r['show_date'], $r['date_format']);
++		$output .= walk_page_tree($pages, $r['depth'], '_page_list_element_start', '_page_list_element_end', '_page_list_level_start', '_page_list_level_end', $current_page, $r['show_date'], $r['date_format']);
+ 
+ 		if ( $r['title_li'] )
+ 			$output .= '</ul></li>';
+
+commit 9ffdbe2230c649ab430c28af8708cd61a11a30ec
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Apr 4 02:02:12 2006 +0000
+
+    List filters from David House. fixes #2328
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3691 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 11a9232519..ae39d3ce61 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -351,6 +351,7 @@ function &get_pages($args = '') {
+ 	$query .= " ORDER BY " . $sort_column . " " . $sort_order ;
+ 
+ 	$pages = $wpdb->get_results($query);
++	$pages = apply_filters('get_pages', $pages, $r);
+ 
+ 	if ( empty($pages) )
+ 		return array();
+
+commit 3c61e4b10d05b06c116fd2c8eccea5647e2b6759
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Mar 21 22:46:38 2006 +0000
+
+    Add meta_key and meta_value options to get_posts() and get_pages(). Props MichaelH. fixes #2563
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3656 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 794eded6ac..11a9232519 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -306,14 +306,16 @@ function &get_pages($args = '') {
+ 		parse_str($args, $r);
+ 
+ 	$defaults = array('child_of' => 0, 'sort_order' => 'ASC', 'sort_column' => 'post_title',
+-		'hierarchical' => 1, $exclude => '', $include => '');
++				'hierarchical' => 1, 'exclude' => '', 'include' => '', 'meta_key' => '', 'meta_value' => '');
+ 	$r = array_merge($defaults, $r);
+ 	extract($r);
+ 
+ 	$inclusions = '';
+ 	if ( !empty($include) ) {
+-		$child_of = 0; //ignore child_of and exclude params if using include 
++		$child_of = 0; //ignore child_of, exclude, meta_key, and meta_value params if using include 
+ 		$exclude = '';  
++		$meta_key = '';
++		$meta_value = '';
+ 		$incpages = preg_split('/[\s,]+/',$include);
+ 		if ( count($incpages) ) {
+ 			foreach ( $incpages as $incpage ) {
+@@ -342,11 +344,13 @@ function &get_pages($args = '') {
+ 	if (!empty($exclusions)) 
+ 		$exclusions .= ')';
+ 
+-	$pages = $wpdb->get_results("SELECT * " .
+-		"FROM $wpdb->posts " .
+-		"WHERE post_type = 'page' AND post_status = 'publish' " .
+-		"$exclusions $inclusions" .
+-		"ORDER BY " . $sort_column . " " . $sort_order);
++	$query = "SELECT * FROM $wpdb->posts " ;
++	$query .= ( empty( $meta_key ) ? "" : ", $wpdb->postmeta " ) ; 
++	$query .= " WHERE (post_type = 'page' AND post_status = 'publish') $exclusions $inclusions " ;
++	$query .= ( empty( $meta_key ) | empty($meta_value)  ? "" : " AND ($wpdb->posts.ID = $wpdb->postmeta.post_id AND $wpdb->postmeta.meta_key = '$meta_key' AND $wpdb->postmeta.meta_value = '$meta_value' )" ) ;
++	$query .= " ORDER BY " . $sort_column . " " . $sort_order ;
++
++	$pages = $wpdb->get_results($query);
+ 
+ 	if ( empty($pages) )
+ 		return array();
+
+commit 4ce7df114d94e5439646e4c408e2b19cde067184
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Mar 21 04:26:50 2006 +0000
+
+    Add include param to get_posts(), get_categories(), get_pages(), and get_bookmarks().  Props MichaelH.  fixes #2562
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3655 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index b3dc177fbf..794eded6ac 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -306,24 +306,47 @@ function &get_pages($args = '') {
+ 		parse_str($args, $r);
+ 
+ 	$defaults = array('child_of' => 0, 'sort_order' => 'ASC', 'sort_column' => 'post_title',
+-		'hierarchical' => 1);
++		'hierarchical' => 1, $exclude => '', $include => '');
+ 	$r = array_merge($defaults, $r);
++	extract($r);
++
++	$inclusions = '';
++	if ( !empty($include) ) {
++		$child_of = 0; //ignore child_of and exclude params if using include 
++		$exclude = '';  
++		$incpages = preg_split('/[\s,]+/',$include);
++		if ( count($incpages) ) {
++			foreach ( $incpages as $incpage ) {
++				if (empty($inclusions))
++					$inclusions = ' AND ( ID = ' . intval($incpage) . ' ';
++				else
++					$inclusions .= ' OR ID = ' . intval($incpage) . ' ';
++			}
++		}
++	}
++	if (!empty($inclusions)) 
++		$inclusions .= ')';	
+ 
+ 	$exclusions = '';
+-	if ( !empty($r['exclude']) ) {
+-		$expages = preg_split('/[\s,]+/',$r['exclude']);
++	if ( !empty($exclude) ) {
++		$expages = preg_split('/[\s,]+/',$exclude);
+ 		if ( count($expages) ) {
+ 			foreach ( $expages as $expage ) {
+-				$exclusions .= ' AND ID <> ' . intval($expage) . ' ';
++				if (empty($exclusions))
++					$exclusions = ' AND ( ID <> ' . intval($expage) . ' ';
++				else
++					$exclusions .= ' AND ID <> ' . intval($expage) . ' ';
+ 			}
+ 		}
+ 	}
++	if (!empty($exclusions)) 
++		$exclusions .= ')';
+ 
+ 	$pages = $wpdb->get_results("SELECT * " .
+ 		"FROM $wpdb->posts " .
+ 		"WHERE post_type = 'page' AND post_status = 'publish' " .
+-		"$exclusions " .
+-		"ORDER BY " . $r['sort_column'] . " " . $r['sort_order']);
++		"$exclusions $inclusions" .
++		"ORDER BY " . $sort_column . " " . $sort_order);
+ 
+ 	if ( empty($pages) )
+ 		return array();
+@@ -331,8 +354,8 @@ function &get_pages($args = '') {
+ 	// Update cache.
+ 	update_page_cache($pages);
+ 
+-	if ( $r['child_of'] || $r['hierarchical'] )
+-		$pages = & get_page_children($r['child_of'], $pages);
++	if ( $child_of || $hierarchical )
++		$pages = & get_page_children($child_of, $pages);
+ 
+ 	return $pages;
+ }
+
+commit 667597592cd3d407ebe233137999b0afee5b0c8c
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Fri Mar 17 01:16:22 2006 +0000
+
+    Comment feed fixes from David House. fixes #2570
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3644 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 3a95bd1d0c..b3dc177fbf 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -15,6 +15,10 @@ function the_ID() {
+ 	echo $id;
+ }
+ 
++function get_the_ID() {
++	global $id;
++	return $id;
++}
+ 
+ function the_title($before = '', $after = '', $echo = true) {
+ 	$title = get_the_title();
+
+commit 7f125c513578d1395625e9e1f11a496863776598
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Thu Mar 2 06:37:00 2006 +0000
+
+    Use array_merge() to set defaults.
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3595 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 51380e584c..3a95bd1d0c 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -301,14 +301,9 @@ function &get_pages($args = '') {
+ 	else
+ 		parse_str($args, $r);
+ 
+-	if ( !isset($r['child_of']) )
+-		$r['child_of'] = 0;
+-	if ( !isset($r['sort_column']) )
+-		$r['sort_column'] = 'post_title';
+-	if ( !isset($r['sort_order']) )
+-		$r['sort_order'] = 'ASC';
+-	if ( !isset($r['hierarchical']) )
+-		$r['hierarchical'] = 1;
++	$defaults = array('child_of' => 0, 'sort_order' => 'ASC', 'sort_column' => 'post_title',
++		'hierarchical' => 1);
++	$r = array_merge($defaults, $r);
+ 
+ 	$exclusions = '';
+ 	if ( !empty($r['exclude']) ) {
+@@ -344,16 +339,9 @@ function wp_dropdown_pages($args = '') {
+ 	else
+ 		parse_str($args, $r);
+ 
+-	if ( !isset($r['depth']) )
+-		$r['depth'] = 0;
+-	if ( !isset($r['child_of']) )
+-		$r['child_of'] = 0;
+-	if ( !isset($r['echo']) )
+-		$r['echo'] = 1;
+-	if ( !isset($r['selected']) )
+-		$r['selected'] = 0;
+-	if ( !isset($r['name']) )
+-		$r['name'] = 'page_id';
++	$defaults = array('depth' => 0, 'child_of' => 0, 'selected' => 0, 'echo' => 1,
++		'name' => 'page_id');
++	$r = array_merge($defaults, $r);
+ 	extract($r);
+ 
+ 	$pages = get_pages($r);
+@@ -393,18 +381,9 @@ function wp_list_pages($args = '') {
+ 	else
+ 		parse_str($args, $r);
+ 
+-	if ( !isset($r['depth']) )
+-		$r['depth'] = 0;
+-	if ( !isset($r['show_date']) )
+-		$r['show_date'] = '';
+-	if ( !isset($r['date_format']) )
+-		$r['date_format'] = get_settings('date_format');
+-	if ( !isset($r['child_of']) )
+-		$r['child_of'] = 0;
+-	if ( !isset($r['title_li']) )
+-		$r['title_li'] = __('Pages');
+-	if ( !isset($r['echo']) )
+-		$r['echo'] = 1;
++	$defaults = array('depth' => 0, 'show_date' => '', 'date_format' => get_settings('date_format'),
++		'child_of' => 0, 'title_li' => __('Pages'), 'echo' => 1);
++	$r = array_merge($defaults, $r);
+ 
+ 	$output = '';
+ 
+
+commit 5643e1c1ba210f05ef13772dc6e34fb874dc1048
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Thu Mar 2 05:47:59 2006 +0000
+
+    Allow args to be passed as query string or as associative array.  This avoid multiple parse_str calls when passing args along and provides choice on the cheap.
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3594 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 01cd9726f5..51380e584c 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -295,7 +295,11 @@ function &get_page_children($page_id, $pages) {
+ 
+ function &get_pages($args = '') {
+ 	global $wpdb;
+-	parse_str($args, $r);
++
++	if ( is_array($args) )
++		$r = &$args;
++	else
++		parse_str($args, $r);
+ 
+ 	if ( !isset($r['child_of']) )
+ 		$r['child_of'] = 0;
+@@ -335,7 +339,11 @@ function &get_pages($args = '') {
+ }
+ 
+ function wp_dropdown_pages($args = '') {
+-	parse_str($args, $r);
++	if ( is_array($args) )
++		$r = &$args;
++	else
++		parse_str($args, $r);
++
+ 	if ( !isset($r['depth']) )
+ 		$r['depth'] = 0;
+ 	if ( !isset($r['child_of']) )
+@@ -348,7 +356,7 @@ function wp_dropdown_pages($args = '') {
+ 		$r['name'] = 'page_id';
+ 	extract($r);
+ 
+-	$pages = get_pages($args);
++	$pages = get_pages($r);
+ 	$output = '';
+ 
+ 	if ( ! empty($pages) ) {
+@@ -380,7 +388,11 @@ function _page_dropdown_element($output, $page, $depth, $selected) {
+ }
+ 
+ function wp_list_pages($args = '') {
+-	parse_str($args, $r);
++	if ( is_array($args) )
++		$r = &$args;
++	else
++		parse_str($args, $r);
++
+ 	if ( !isset($r['depth']) )
+ 		$r['depth'] = 0;
+ 	if ( !isset($r['show_date']) )
+@@ -397,7 +409,7 @@ function wp_list_pages($args = '') {
+ 	$output = '';
+ 
+ 	// Query pages.
+-	$pages = get_pages($args);
++	$pages = get_pages($r);
+ 
+ 	if ( !empty($pages) ) {
+ 		if ( $r['title_li'] )
+
+commit 740d8f1c1f42506e19a8790fd8a9a87b51fc7710
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Feb 28 06:11:59 2006 +0000
+
+    Add name arg to wp_dropdown_pages().
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3575 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 9a1d59399d..01cd9726f5 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -344,14 +344,15 @@ function wp_dropdown_pages($args = '') {
+ 		$r['echo'] = 1;
+ 	if ( !isset($r['selected']) )
+ 		$r['selected'] = 0;
+-
++	if ( !isset($r['name']) )
++		$r['name'] = 'page_id';
+ 	extract($r);
+ 
+ 	$pages = get_pages($args);
+ 	$output = '';
+ 
+ 	if ( ! empty($pages) ) {
+-		$output = "<select name='page_id'>\n";
++		$output = "<select name='$name'>\n";
+ 		$output .= walk_page_tree($pages, $depth, '_page_dropdown_element', '', '', '', $selected);
+ 		$output .= "</select>\n";
+ 	}
+
+commit 803c970527f0a7f07712281bc0629e0dfbcc71bf
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Tue Feb 28 03:57:08 2006 +0000
+
+    wp_dropdown_pages() and walk_page_tree()
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3573 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index c76e3bd1e0..9a1d59399d 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -295,7 +295,6 @@ function &get_page_children($page_id, $pages) {
+ 
+ function &get_pages($args = '') {
+ 	global $wpdb;
+-
+ 	parse_str($args, $r);
+ 
+ 	if ( !isset($r['child_of']) )
+@@ -304,6 +303,8 @@ function &get_pages($args = '') {
+ 		$r['sort_column'] = 'post_title';
+ 	if ( !isset($r['sort_order']) )
+ 		$r['sort_order'] = 'ASC';
++	if ( !isset($r['hierarchical']) )
++		$r['hierarchical'] = 1;
+ 
+ 	$exclusions = '';
+ 	if ( !empty($r['exclude']) ) {
+@@ -327,12 +328,55 @@ function &get_pages($args = '') {
+ 	// Update cache.
+ 	update_page_cache($pages);
+ 
+-	if ( $r['child_of'] )
++	if ( $r['child_of'] || $r['hierarchical'] )
+ 		$pages = & get_page_children($r['child_of'], $pages);
+ 
+ 	return $pages;
+ }
+ 
++function wp_dropdown_pages($args = '') {
++	parse_str($args, $r);
++	if ( !isset($r['depth']) )
++		$r['depth'] = 0;
++	if ( !isset($r['child_of']) )
++		$r['child_of'] = 0;
++	if ( !isset($r['echo']) )
++		$r['echo'] = 1;
++	if ( !isset($r['selected']) )
++		$r['selected'] = 0;
++
++	extract($r);
++
++	$pages = get_pages($args);
++	$output = '';
++
++	if ( ! empty($pages) ) {
++		$output = "<select name='page_id'>\n";
++		$output .= walk_page_tree($pages, $depth, '_page_dropdown_element', '', '', '', $selected);
++		$output .= "</select>\n";
++	}
++
++	$output = apply_filters('wp_dropdown_pages', $output);
++
++	if ( $echo )
++		echo $output;
++
++	return $output;
++}
++
++function _page_dropdown_element($output, $page, $depth, $selected) {
++	$pad = str_repeat('&nbsp;', $depth * 3);
++
++	$output .= "\t<option value=\"$page->ID\"";
++	if ( $page->ID == $selected )
++		$output .= ' selected="selected"';
++	$output .= '>';
++	$title = wp_specialchars($page->post_title);
++	$output .= "$pad$title";
++	$output .= "</option>\n";
++
++	return $output;
++}
+ 
+ function wp_list_pages($args = '') {
+ 	parse_str($args, $r);
+@@ -340,6 +384,8 @@ function wp_list_pages($args = '') {
+ 		$r['depth'] = 0;
+ 	if ( !isset($r['show_date']) )
+ 		$r['show_date'] = '';
++	if ( !isset($r['date_format']) )
++		$r['date_format'] = get_settings('date_format');
+ 	if ( !isset($r['child_of']) )
+ 		$r['child_of'] = 0;
+ 	if ( !isset($r['title_li']) )
+@@ -350,42 +396,16 @@ function wp_list_pages($args = '') {
+ 	$output = '';
+ 
+ 	// Query pages.
+-	$pages = & get_pages($args);
+-	if ( $pages ) {
++	$pages = get_pages($args);
+ 
++	if ( !empty($pages) ) {
+ 		if ( $r['title_li'] )
+ 			$output .= '<li class="pagenav">' . $r['title_li'] . '<ul>';
+ 
+-		// Now loop over all pages that were selected
+-		$page_tree = Array();
+-		foreach ( $pages as $page ) {
+-			// set the title for the current page
+-			$page_tree[$page->ID]['title'] = $page->post_title;
+-			$page_tree[$page->ID]['name'] = $page->post_name;
+-
+-			// set the selected date for the current page
+-			// depending on the query arguments this is either
+-			// the createtion date or the modification date
+-			// as a unix timestamp. It will also always be in the
+-			// ts field.
+-			if ( !empty($r['show_date']) ) {
+-				if ( 'modified' == $r['show_date'] )
+-					$page_tree[$page->ID]['ts'] = $page->post_modified;
+-				else
+-					$page_tree[$page->ID]['ts'] = $page->post_date;
+-			}
++		global $wp_query;
++		$current_page = $wp_query->get_queried_object_id();
++		$output .= walk_page_tree($pages, $depth, '_page_list_element_start', '_page_list_element_end', '_page_list_level_start', '_page_list_level_end', $current_page, $r['show_date'], $r['date_format']);
+ 
+-			// The tricky bit!!
+-			// Using the parent ID of the current page as the
+-			// array index we set the curent page as a child of that page.
+-			// We can now start looping over the $page_tree array
+-			// with any ID which will output the page links from that ID downwards.
+-			if ( $page->post_parent != $page->ID)
+-				$page_tree[$page->post_parent]['children'][] = $page->ID;
+-		}
+-		// Output of the pages starting with child_of as the root ID.
+-		// child_of defaults to 0 if not supplied in the query.
+-		$output .= _page_level_out($r['child_of'],$page_tree, $r, 0, false);
+ 		if ( $r['title_li'] )
+ 			$output .= '</ul></li>';
+ 	}
+@@ -398,51 +418,44 @@ function wp_list_pages($args = '') {
+ 		return $output;
+ }
+ 
++function _page_list_level_start($output, $depth) {
++	$indent = str_repeat("\t", $depth);
++	$output .= "$indent<ul>\n";
++	return $output;
++}
+ 
+-function _page_level_out($parent, $page_tree, $args, $depth = 0, $echo = true) {
+-	global $wp_query;
+-	$queried_obj = $wp_query->get_queried_object();
+-	$output = '';
++function _page_list_level_end($output, $depth) {
++	$indent = str_repeat("\t", $depth);
++	$output .= "$indent</ul>\n";
++	return $output;
++}
+ 
++function _page_list_element_start($output, $page, $depth, $current_page, $show_date, $date_format) {
+ 	if ( $depth )
+ 		$indent = str_repeat("\t", $depth);
+-		//$indent = join('', array_fill(0,$depth,"\t"));
+ 
+-	if ( !is_array($page_tree[$parent]['children']) )
+-		return false;
++	$css_class = 'page_item';
++	if ( $page->ID == $current_page )
++		$css_class .= ' current_page_item';
+ 
+-	foreach ( $page_tree[$parent]['children'] as $page_id ) {
+-		$cur_page = $page_tree[$page_id];
+-		$title = $cur_page['title'];
++	$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_page_link($page->ID) . '" title="' . wp_specialchars($page->post_title) . '">' . $page->post_title . '</a>';
+ 
+-		$css_class = 'page_item';
+-		if ( $page_id == $queried_obj->ID )
+-			$css_class .= ' current_page_item';
++	if ( !empty($show_date) ) {
++		if ( 'modified' == $show_date )
++			$time = $page->post_modified;
++		else
++			$time = $page->post_date;
+ 
+-		$output .= $indent . '<li class="' . $css_class . '"><a href="' . get_page_link($page_id) . '" title="' . wp_specialchars($title) . '">' . $title . '</a>';
++		$output .= " " . mysql2date($date_format, $time);
++	}
+ 
+-		if ( isset($cur_page['ts']) ) {
+-			$format = get_settings('date_format');
+-			if ( isset($args['date_format']) )
+-				$format = $args['date_format'];
+-			$output .= " " . mysql2date($format, $cur_page['ts']);
+-		}
++	return $output;
++}
+ 
+-		if ( isset($cur_page['children']) && is_array($cur_page['children']) ) {
+-			$new_depth = $depth + 1;
++function _page_list_element_end($output, $page, $depth) {
++	$output .= "</li>\n";
+ 
+-			if ( !$args['depth'] || $depth < ($args['depth']-1) ) {
+-				$output .= "$indent<ul>\n";
+-				$output .= _page_level_out($page_id, $page_tree, $args, $new_depth, false);
+-				$output .= "$indent</ul>\n";
+-			}
+-		}
+-		$output .= "$indent</li>\n";
+-	}
+-	if ( $echo )
+-		echo $output;
+-	else
+-		return $output;
++	return $output;
+ }
+ 
+ function the_attachment_link($id = 0, $fullsize = false, $max_dims = false) {
+
+commit 605d4a617aa04f852ca34434c2835e292a723822
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Mon Feb 20 17:13:06 2006 +0000
+
+    Fix post/page slug out.  Props donncha.  fixes #2472
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3558 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 07cfd1416a..c76e3bd1e0 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -258,6 +258,9 @@ function the_meta() {
+ 	if ( $keys = get_post_custom_keys() ) {
+ 		echo "<ul class='post-meta'>\n";
+ 		foreach ( $keys as $key ) {
++			$keyt = trim($key);
++			if ( '_' == $keyt{0} )
++				continue;
+ 			$values = array_map('trim', get_post_custom_values($key));
+ 			$value = implode($values,', ');
+ 			echo "<li><span class='post-meta-key'>$key:</span> $value</li>\n";
+
+commit dd202ce1f93f17941127eb74391df1f09672971b
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Sun Feb 12 07:53:23 2006 +0000
+
+    Death to trailing tabs. Props Mark J. fixes #2405
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3517 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 44c3a879cf..07cfd1416a 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -211,7 +211,7 @@ function get_post_custom( $post_id = 0 ) {
+ 			// Force subkeys to be array type:
+ 			if ( !isset($post_meta_cache[$mpid]) || !is_array($post_meta_cache[$mpid]) )
+ 				$post_meta_cache[$mpid] = array();
+-				
++
+ 			if ( !isset($post_meta_cache[$mpid]["$mkey"]) || !is_array($post_meta_cache[$mpid]["$mkey"]) )
+ 				$post_meta_cache[$mpid]["$mkey"] = array();
+ 
+
+commit f812294867b0bea3133fcbc7ac4606e26c067789
+Author: ryan <ryan@1a063a9b-81f0-0310-95a4-ce76da25c4cd>
+Date:   Thu Feb 9 10:03:48 2006 +0000
+
+    Allow draft pages.  Use post_type for object types.  Reserve post_status strictly for status. fixes #1820
+    
+    git-svn-id: http://svn.automattic.com/wordpress/trunk@3510 1a063a9b-81f0-0310-95a4-ce76da25c4cd
+
+diff --git a/wp-includes/template-functions-post.php b/wp-includes/template-functions-post.php
+index 383acb379e..44c3a879cf 100644
+--- a/wp-includes/template-functions-post.php
++++ b/wp-includes/template-functions-post.php
+@@ -314,7 +314,7 @@ function &get_pages($args = '') {
+ 
+ 	$pages = $wpdb->get_results("SELECT * " .
+ 		"FROM $wpdb->posts " .
+-		"WHERE post_status = 'static' " .
++		"WHERE post_type = 'page' AND post_status = 'publish' " .
+ 		"$exclusions " .
+ 		"ORDER BY " . $r['sort_column'] . " " . $r['sort_order']);
+ 
+@@ -450,7 +450,7 @@ function get_the_attachment_link($id = 0, $fullsize = false, $max_dims = false)
+ 	$id = (int) $id;
+ 	$_post = & get_post($id);
+ 
+-	if ( ('attachment' != $_post->post_status) || ('' == $_post->guid) )
++	if ( ('attachment' != $_post->post_type) || ('' == $_post->guid) )
+ 		return __('Missing Attachment');
+ 
+ 	if (! empty($_post->guid) ) {

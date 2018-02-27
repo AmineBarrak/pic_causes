@@ -1,0 +1,3 @@
+ADD wp-admin/includes/dashboard.php 491
+ADD wp-includes/version.php 7
+DEL wp-includes/version.php 7
